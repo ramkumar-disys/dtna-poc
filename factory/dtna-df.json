@@ -1,0 +1,9 @@
+{
+	"name": "dtna-df",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1c3ec801-0e1f-42e7-9a39-f6e51f3064d6",
+		"tenantId": "aef6baf5-6231-4690-9308-23d674d56b05"
+	}
+}

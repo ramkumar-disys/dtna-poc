@@ -1,0 +1,16 @@
+{
+	"name": "AzureDataExplorerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataExplorer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDataExplorerTable",
+		"schema": [],
+		"typeProperties": {
+			"table": "['covid-df-source']"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

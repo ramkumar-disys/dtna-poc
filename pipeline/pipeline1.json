@@ -1,0 +1,183 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureDataExplorerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "updated",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "updated",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "confirmed",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "confirmed",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "confirmed_change",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "confirmed_change",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "deaths",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "deaths",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "deaths_change",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "deaths_change",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "recovered",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "recovered",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "recovered_change",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "recovered_change",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "country_region",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "country_region",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "admin_region_1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "admin_region_1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "admin_region_2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "admin_region_2",
+									"type": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureDataExplorerTable1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-08-03T12:37:02Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
